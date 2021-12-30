@@ -1,7 +1,10 @@
 <template>
   <footer v-if="$frontmatter.footer" class="footer">
     <div class="container">
-      <p class="text">{{ $frontmatter.footer }}</p>
+      <p class="text">
+        {{ $frontmatter.footer }}
+        <a href="https://beian.miit.gov.cn/">陕ICP备2021004969号-1</a>
+      </p>
     </div>
   </footer>
 </template>

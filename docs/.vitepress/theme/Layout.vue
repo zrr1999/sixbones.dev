@@ -36,10 +36,7 @@
     <Page v-else>
       <template #top>
         <slot name="page-top-ads">
-          <div
-            id="ads-container"
-            v-if="theme.carbonAds && theme.carbonAds.carbon"
-          >
+          <div id="ads-container" v-if="theme.carbonAds && theme.carbonAds.carbon">
             <CarbonAds
               :key="'carbon' + page.relativePath"
               :code="theme.carbonAds.carbon"
@@ -62,7 +59,6 @@
       </template>
     </Page>
   </div>
-  <div class="footer"></div>
   <Debug />
 </template>
 

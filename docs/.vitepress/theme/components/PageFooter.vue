@@ -6,6 +6,7 @@
     <div class="updated">
       <LastUpdated />
     </div>
+    <!-- <a href="https://beian.miit.gov.cn/">陕ICP备2021004969号-2</a> -->
   </footer>
 </template>
 
