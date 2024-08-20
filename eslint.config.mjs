@@ -27,7 +27,7 @@ export default [
     },
   },
   {
-    files: ["tailwind.config.cjs", "**/*.d.ts"],
+    files: ["**/tailwind.config.cjs", "**/*.d.ts"],
     rules: {
       "@typescript-eslint/no-require-imports": "off",
       "@typescript-eslint/triple-slash-reference": "off",
@@ -36,6 +36,8 @@ export default [
   {
     rules: {
       "@typescript-eslint/no-unused-expressions": "off",
+      "@typescript-eslint/no-explicit-any": "off",
+      "@typescript-eslint/no-empty-object-type": "off",
     },
   },
   {

@@ -1,10 +1,9 @@
 ---
 title: "利用 nftables 搭建 Linux 网关"
-author: "利用 nftables 搭建 Linux 网关"
+author: "六个骨头"
 description: "与 OpenWRT 相比，自建 Linux 网关更加灵活，而且可以使用自己熟悉的任何发行版"
 pubDatetime: "2024-08-21"
 modDatetime: "2024-08-21"
-# heroImage: '/blog-placeholder-5.jpg'
 ---
 
 目前，适合个人使用的软路由系统主要包括 iKuai、OpenWRT 和 RouterOS，其中 RouterOS 我没有用过，

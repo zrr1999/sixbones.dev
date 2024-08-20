@@ -1,23 +1,21 @@
 import { defineConfig } from "astro/config";
-import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import vue from "@astrojs/vue";
 import react from "@astrojs/react";
 import tailwind from "@astrojs/tailwind";
 import AstroPWA from "@vite-pwa/astro";
 import pagefind from "astro-pagefind";
-
+import mdx from "@astrojs/mdx";
+import typst from "@zrr-blog/astro-typst";
 import remarkMath from "remark-math";
 import remarkCodeTitles from "remark-code-titles";
+// import remarkToc from "remark-toc";
+// import remarkCollapse from "remark-collapse";
 
 import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeToc from "rehype-toc";
 import rehypeKatex from "rehype-katex";
-
-// import remarkToc from "remark-toc";
-// import remarkCollapse from "remark-collapse";
-// import sitemap from "@astrojs/sitemap";
 
 import { SITE } from "./src/config";
 
@@ -26,6 +24,7 @@ export default defineConfig({
   site: SITE.website,
   integrations: [
     mdx(),
+    typst(),
     sitemap(),
     vue(),
     react(),
@@ -45,7 +44,6 @@ export default defineConfig({
       rehypeKatex,
     ],
     shikiConfig: {
-      // For more themes, visit https://shiki.style/themes
       themes: { light: "min-light", dark: "night-owl" },
       wrap: true,
     },
