@@ -1,4 +1,4 @@
-#import "@preview/bone-resume:0.3.0": resume-init, resume-section, primary-achievement, achievement, github, github
+#import "@preview/bone-resume:0.3.0": resume-init, resume-section, primary-achievement, achievement, github
 #show: resume-init.with(author: "詹荣瑞", show-common: true)
 #let Paddle = github("PaddlePaddle/Paddle", body: "Paddle")
 #let CINN = github("PaddlePaddle/CINN", body: "CINN")

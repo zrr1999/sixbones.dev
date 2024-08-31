@@ -3,9 +3,8 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "turbo dev --filter=./apps/*",
-    "build": "turbo build",
-    "preview": "turbo preview",
+    "dev": "turbo dev --filter=./apps/web",
+    "build": "turbo build --filter=./apps/web",
     "format:check": "prettier --check . --plugin=prettier-plugin-astro",
     "format": "prettier --write . --plugin=prettier-plugin-astro",
     "lint": "eslint ."
