@@ -6,7 +6,6 @@ export const SITE: Site = {
   profile: "https://blog.bone6.com/",
   desc: "一个普通的个人主页",
   title: "六个骨头的主页",
-  heroImage: "astropaper-og.jpg",
   lightAndDarkMode: true,
   postPerIndex: 4,
   postPerPage: 3,
