@@ -1,5 +1,5 @@
 {
-  "name": "@zrr-blog/web",
+  "name": "@zrr-blog/blog",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
