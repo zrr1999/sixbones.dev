@@ -8,8 +8,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
-  pages: write
+  contents: write
   id-token: write
 
 concurrency:
@@ -28,15 +27,7 @@ jobs:
         run: |
           bun install --frozen-lockfile
           bun run build
-      - name: Upload Pages Artifact 🔧
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: "./apps/blog/dist/"
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Create preview page
+      - name: Create deployment branch 🌿
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
