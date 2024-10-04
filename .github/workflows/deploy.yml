@@ -36,5 +36,5 @@ jobs:
           force_orphan: true
           commit_message: ':rocket: deploy: '
           user_name: 'zrr1999'
-          user_email: '2742392377@qq.com'
+          user_email: 'me@bone6.com'
           
