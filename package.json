@@ -1,14 +1,6 @@
 {
   "name": "zrr-blog",
-  "type": "module",
   "version": "0.0.1",
-  "scripts": {
-    "dev": "turbo dev --filter=./apps/*",
-    "build": "turbo build --filter=./apps/*",
-    "format:check": "prettier --check . --plugin=prettier-plugin-astro",
-    "format": "prettier --write . --plugin=prettier-plugin-astro",
-    "lint": "eslint ."
-  },
   "devDependencies": {
     "turbo": "^2.0.14",
     "astro-eslint-parser": "^1.0.2",
@@ -21,6 +13,14 @@
     "typescript-eslint": "^8.1.0"
   },
   "packageManager": "bun@1.1.22",
+  "scripts": {
+    "dev": "turbo dev --filter=./apps/*",
+    "build": "turbo build --filter=./apps/*",
+    "format:check": "prettier --check . --plugin=prettier-plugin-astro",
+    "format": "prettier --write . --plugin=prettier-plugin-astro",
+    "lint": "eslint ."
+  },
+  "type": "module",
   "workspaces": [
     "packages/*",
     "apps/*"
