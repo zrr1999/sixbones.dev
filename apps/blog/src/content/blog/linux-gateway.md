@@ -194,9 +194,7 @@ table ip mangle{
 对于其他流量，我们通过 `ip daddr $proxy-ip ip protocol {udp, tcp} mark set 0x162 tproxy to 127.0.0.1:7894` 直接将流量的透明代理设置成 mihomo，
 同样因为我们添加了 `ip rule add fwmark 0x162 lookup 100`，这些流量会被重新路由到环回地址进行后续处理，这样 mihomo 才可以接收到这些流量并进行代理。
 
-## 后续改进
-
-1. 如果本身就进了环回地址是否就不需要标记 `0x162` 了？
+<!-- TODO: 如果本身就进了环回地址是否就不需要标记 `0x162` 了？ -->
 
 ## 参考资料
 [包的路由转圈圈——谈谈使用nftables配置透明代理碰到的那些坑](https://koswu.github.io/2019/08/19/tproxy-config-with-nftables/)
