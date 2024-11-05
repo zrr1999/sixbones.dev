@@ -1,9 +1,9 @@
 ---
-title: "使用 Linux + Incus 搭建 all in one 的小主机"
+title: "使用 ArchLinux + Incus 搭建 all in one 的小主机"
 author: "六个骨头"
 description: "目前最流行的 AIO 方案是 EXSI 和 PVE，但是其实还有一个更加轻量级的方案，只需要一个普通 Linux 的主机即可"
 pubDatetime: "2024-10-13"
-modDatetime: "2024-10-13"
+modDatetime: "2024-11-05"
 tags: ["网络", "路由"]
 ---
 
@@ -31,7 +31,7 @@ EXSI 方案相对比较封闭，适合追求稳定的玩家，而 PVE 方案更�
 
 - iKuai：主路由，负责拨号上网，DHCP。
 - ArchLinux 网关：负责 DNS 解析，透明代理。
-- ArchLinux 服务：运行各种 docker 服务，例如 speedtest-tracker, alist 等
+- ArchLinux 网络服务：运行各种 docker 服务，例如 speedtest-tracker, alist 等
 - HomeAssistant：智能家居系统，非官方系统，是基于 ArchLinux 搭建的。 
 
 ### 网口分配
@@ -73,4 +73,24 @@ incus config device add ikuai iso-ikuai-volume disk pool=default source=iso-ikua
 
 上述步骤完成后，你可以在 incus-ui 上找到 ikuai 这个实例，点击启动，然后就可以看到 iKuai 的安装界面了，按照提示安装即可。
 
+### 搭建 ArchLinux 网关
+这部分内容可以参考我的另一篇文章 [利用 nftables 搭建 Linux 网关](../linux-gateway)。
+
+### 搭建 ArchLinux 网络服务
+具体内容参考 [zrr1999/zrr-compose](https://github.com/zrr1999/zrr-compose)。
+
 未完待续
+<!-- TODO: 补充内容 -->
+
+### 搭建基于 ArchLinux 的 HomeAssistant
+虽然 HomeAssistant 官方只对 Debian 提供支持，但是实际上在 ArchLinux 上也可以使用，
+甚至更加方便，你只需要进行下列操作：
+```bash
+paru -Sy homeassistant-supervised
+su root
+pacman -S --noconfirm --needed apparmor
+systemctl enable --now hassio-supervisor
+systemctl enable --now hassio-apparmor
+```
+
+注意：由于是非官方支持，所以可能存在一些意外问题，等我遇到再补充。
