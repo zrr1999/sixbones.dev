@@ -6,7 +6,7 @@ import tailwind from "@astrojs/tailwind";
 import AstroPWA from "@vite-pwa/astro";
 import pagefind from "astro-pagefind";
 import mdx from "@astrojs/mdx";
-import typst from "@zrr-blog/astro-typst";
+import { typst } from 'astro-typst';
 import remarkMath from "remark-math";
 import remarkCodeTitles from "remark-code-titles";
 import remarkToc from "remark-toc";
@@ -23,7 +23,17 @@ export default defineConfig({
   site: SITE.website,
   integrations: [
     mdx(),
-    typst(),
+    typst({
+      options: {
+        remPx: 14,
+      },
+      target: (id) => {
+        console.debug(`Detecting ${id}`);
+        if (id.endsWith('.html.typ') || id.includes('/html/'))
+          return "html";
+        return "svg";
+      },
+    }),
     sitemap(),
     vue(),
     react(),
