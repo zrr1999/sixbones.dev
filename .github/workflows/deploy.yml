@@ -34,6 +34,6 @@ jobs:
           publish_dir: ./apps/blog/dist/
           publish_branch: blog
           force_orphan: true
-          commit_message: ':rocket: deploy: '
-          user_name: 'github-actions'
-          user_email: 'github-actions@github.com'
+          commit_message: ":rocket: deploy: "
+          user_name: "github-actions"
+          user_email: "github-actions@github.com"

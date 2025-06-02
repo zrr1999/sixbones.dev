@@ -27,7 +27,7 @@ function loadFail() {
     v-if="!loadingFail"
     :src="emojiUrl"
     :alt="emoji"
-    class="h-[1em] inline"
+    class="inline h-[1em]"
     @error.once="loadFail"
   />
   <a v-else>{{ emoji }}</a>
