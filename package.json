@@ -16,8 +16,8 @@
   "scripts": {
     "dev": "turbo dev --filter=./apps/*",
     "build": "turbo build --filter=./apps/*",
-    "format:check": "prettier --check . --plugin=prettier-plugin-astro",
-    "format": "prettier --write . --plugin=prettier-plugin-astro",
+    "format:check": "prettier --check .",
+    "format": "prettier --write .",
     "lint": "eslint ."
   },
   "type": "module",

@@ -1,25 +1,25 @@
-import { SITE } from "@config";
 import { defineCollection, z } from "astro:content";
+import { glob } from "astro/loaders";
+import { SITE } from "@/config";
+
+export const BLOG_PATH = "src/content/blog";
 
 const blog = defineCollection({
-  type: "content",
+  loader: glob({ pattern: "**/[^_]*.md", base: `./${BLOG_PATH}` }),
   schema: ({ image }) =>
     z.object({
-      title: z.string(),
       author: z.string().default(SITE.author),
-      description: z.string(),
       pubDatetime: z.coerce.date(),
-      modDatetime: z.coerce.date().optional(),
+      modDatetime: z.coerce.date().optional().nullable(),
+      title: z.string(),
       featured: z.boolean().optional(),
       draft: z.boolean().optional(),
       tags: z.array(z.string()).default(["未分类"]),
-      heroImage: image()
-        .refine(img => img.width >= 1200 && img.height >= 630, {
-          message: "OpenGraph image must be at least 1200 X 630 pixels!",
-        })
-        .or(z.string())
-        .optional(),
+      ogImage: image().or(z.string()).optional(),
+      description: z.string(),
       canonicalURL: z.string().optional(),
+      hideEditPost: z.boolean().optional(),
+      timezone: z.string().optional(),
     }),
 });
 

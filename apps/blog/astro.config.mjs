@@ -2,11 +2,11 @@ import { defineConfig } from "astro/config";
 import sitemap from "@astrojs/sitemap";
 import vue from "@astrojs/vue";
 import react from "@astrojs/react";
-import tailwind from "@astrojs/tailwind";
+import tailwindcss from "@tailwindcss/vite";
 import AstroPWA from "@vite-pwa/astro";
 import pagefind from "astro-pagefind";
 import mdx from "@astrojs/mdx";
-import { typst } from 'astro-typst';
+import { typst } from "astro-typst";
 import remarkMath from "remark-math";
 import remarkCodeTitles from "remark-code-titles";
 import remarkToc from "remark-toc";
@@ -27,19 +27,15 @@ export default defineConfig({
       options: {
         remPx: 14,
       },
-      target: (id) => {
+      target: id => {
         console.debug(`Detecting ${id}`);
-        if (id.endsWith('.html.typ') || id.includes('/html/'))
-          return "html";
+        if (id.endsWith(".html.typ") || id.includes("/html/")) return "html";
         return "svg";
       },
     }),
     sitemap(),
     vue(),
     react(),
-    tailwind({
-      applyBaseStyles: false,
-    }),
     pagefind(),
     AstroPWA(),
   ],
@@ -64,6 +60,7 @@ export default defineConfig({
     },
   },
   vite: {
+    plugins: [tailwindcss()],
     optimizeDeps: {
       exclude: ["@resvg/resvg-js"],
     },

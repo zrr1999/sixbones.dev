@@ -1,7 +1,7 @@
 ---
-import { LOCALE, SITE } from "@config";
-import "@styles/base.css";
-import { ViewTransitions } from "astro:transitions";
+import { SITE } from "@/config";
+import { ClientRouter } from "astro:transitions";
+import "@/styles/global.css";
 
 const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION;
 
@@ -10,7 +10,7 @@ export interface Props {
   author?: string;
   profile?: string;
   description?: string;
-  heroImage?: string;
+  ogImage?: string;
   canonicalURL?: string;
   pubDatetime?: Date;
   modDatetime?: Date | null;
@@ -22,17 +22,14 @@ const {
   author = SITE.author,
   profile = SITE.profile,
   description = SITE.desc,
-  heroImage = SITE.heroImage,
+  ogImage = SITE.ogImage ? `/${SITE.ogImage}` : "/og.png",
   canonicalURL = new URL(Astro.url.pathname, Astro.site).href,
   pubDatetime,
   modDatetime,
   scrollSmooth = false,
 } = Astro.props;
 
-const socialImageURL = new URL(
-  heroImage ?? SITE.heroImage ?? "og.png",
-  Astro.url.origin
-).href;
+const socialImageURL = new URL(ogImage, Astro.url);
 
 const structuredData = {
   "@context": "https://schema.org",
@@ -52,10 +49,7 @@ const structuredData = {
 ---
 
 <!doctype html>
-<html
-  lang=`${LOCALE.lang ?? "en"}`
-  class={`${scrollSmooth && "scroll-smooth"}`}
->
+<html lang=`${SITE.lang ?? "cn"}` class={`${scrollSmooth && "scroll-smooth"}`}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -102,6 +96,7 @@ const structuredData = {
 
     <!-- Google JSON-LD Structured data -->
     <script
+      is:inline
       type="application/ld+json"
       set:html={JSON.stringify(structuredData)}
     />
@@ -128,7 +123,7 @@ const structuredData = {
       )
     }
 
-    <ViewTransitions />
+    <ClientRouter />
 
     <script is:inline src="/toggle-theme.js"></script>
   </head>
