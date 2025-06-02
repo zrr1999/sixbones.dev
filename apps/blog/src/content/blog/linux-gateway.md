@@ -2,8 +2,8 @@
 title: "利用 nftables 搭建 Linux 网关"
 author: "六个骨头"
 description: "与 OpenWRT 相比，自建 Linux 网关更加灵活，而且可以使用自己熟悉的任何发行版（以 ArchLinux 为例）"
-pubDatetime: "2024-08-21"
-modDatetime: "2024-10-04"
+pubDatetime: 2024-08-21
+modDatetime: 2024-10-04
 tags: ["网络", "路由"]
 ---
 
@@ -74,6 +74,7 @@ ip route add local 0.0.0.0/0 dev lo table 100
 ```
 
 最后使用 systemctl 启动这些服务：
+
 ```bash
 systemctl enable mosdns
 systemctl start mosdns
@@ -109,6 +110,7 @@ systemctl status nftables
 
 nftables 的配置文件位于 [`/etc/nftables.conf`](https://github.com/zrr1999/system-install-scripts/blob/main/root-gateway/etc/nftables.conf)，
 完整的内容如下：
+
 ```conf
 #!/usr/sbin/nft -f
 
@@ -140,14 +142,14 @@ table inet filter {
 table inet nat {
     chain prerouting {
         type nat hook prerouting priority 0; policy accept;
-        
+
         tcp dport 53 redirect to :5335
         udp dport 53 redirect to :5335
     }
 
     chain output {
         type nat hook output priority 0; policy accept;
-        
+
         ip daddr 127.0.0.0/24 tcp dport 53 redirect to :5335
         ip daddr 127.0.0.0/24 udp dport 53 redirect to :5335
     }
@@ -169,7 +171,7 @@ table ip mangle{
 
     chain prerouting {
         type filter hook prerouting priority mangle; policy accept;
-        
+
         jump proxy
     }
 
@@ -189,6 +191,7 @@ table ip mangle{
 对于路由流量，我们通过 `tcp dport 53 redirect to :5335` 和 `udp dport 53 redirect to :5335` 将流量转发到 MosDNS。
 
 ### 配置透明代理
+
 对于本地出站流量，我们通过 `ip daddr $proxy-ip ip protocol {udp, tcp} mark set 0x161` 对流量进行标记，`0x161` 表示需要代理的本地出站流量，
 因为我们添加了 `ip rule add fwmark 0x161 lookup 100`，这些流量会被重新路由到环回地址进行后续处理。
 对于其他流量，我们通过 `ip daddr $proxy-ip ip protocol {udp, tcp} mark set 0x162 tproxy to 127.0.0.1:7894` 直接将流量的透明代理设置成 mihomo，
@@ -197,5 +200,5 @@ table ip mangle{
 <!-- TODO: 如果本身就进了环回地址是否就不需要标记 `0x162` 了？ -->
 
 ## 参考资料
-[包的路由转圈圈——谈谈使用nftables配置透明代理碰到的那些坑](https://koswu.github.io/2019/08/19/tproxy-config-with-nftables/)
 
+[包的路由转圈圈——谈谈使用nftables配置透明代理碰到的那些坑](https://koswu.github.io/2019/08/19/tproxy-config-with-nftables/)

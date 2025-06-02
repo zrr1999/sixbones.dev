@@ -2,8 +2,8 @@
 title: "将 qcow2 镜像导入 incus"
 author: "六个骨头"
 description: "许多系统官方只给了 qcow2 镜像的格式，我们需要一些处理才能导入 incus"
-pubDatetime: "2024-11-07"
-modDatetime: "2024-11-07"
+pubDatetime: 2024-11-07
+modDatetime: 2024-11-07
 tags: ["智能家居", "虚拟机"]
 ---
 
@@ -37,5 +37,6 @@ incus image import metadata.tar haos_ova-13.2.qcow2 --alias haos
 ```
 
 ## 参考资料
+
 - https://nsg.cc/post/2022/import-qcow2-to-lxd/
 - https://linuxcontainers.org/incus/docs/main/reference/image_format/
