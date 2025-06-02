@@ -1,0 +1,3 @@
+[submodule "apps/blog/src/assets/images"]
+	path = apps/blog/src/assets/images
+	url = https://github.com/zrr1999/image-hosting
