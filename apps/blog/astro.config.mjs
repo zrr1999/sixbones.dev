@@ -14,13 +14,17 @@ import remarkCollapse from "remark-collapse";
 
 import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
-import rehypeKatex from "rehype-katex";
+import rehypeTypst from "@myriaddreamin/rehype-typst";
 
 import { SITE } from "./src/config";
 
 export default defineConfig({
   prefetch: true,
   site: SITE.website,
+  i18n: {
+    locales: ["en", "zh-cn"],
+    defaultLocale: "zh-cn",
+  },
   integrations: [
     mdx(),
     typst({
@@ -53,7 +57,7 @@ export default defineConfig({
       remarkCodeTitles,
       remarkMath,
     ],
-    rehypePlugins: [rehypeSlug, rehypeAutolinkHeadings, rehypeKatex],
+    rehypePlugins: [rehypeSlug, rehypeAutolinkHeadings, rehypeTypst],
     shikiConfig: {
       themes: { light: "min-light", dark: "night-owl" },
       wrap: true,
@@ -64,9 +68,11 @@ export default defineConfig({
     optimizeDeps: {
       exclude: ["@resvg/resvg-js"],
     },
+    ssr: {
+      external: ["@myriaddreamin/typst-ts-node-compiler"],
+    },
   },
   // scopedStyleStrategy: "where",
   // experimental: {
-  //   contentLayer: true,
   // },
 });
