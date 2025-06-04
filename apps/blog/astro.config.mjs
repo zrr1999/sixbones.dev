@@ -33,6 +33,7 @@ export default defineConfig({
       },
       target: id => {
         console.debug(`Detecting ${id}`);
+        if (id.includes("/data/")) return "html";
         if (id.endsWith(".html.typ") || id.includes("/html/")) return "html";
         return "svg";
       },

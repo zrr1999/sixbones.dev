@@ -57,3 +57,15 @@ html[data-theme="dark"] {
 .active-nav {
   @apply underline decoration-wavy decoration-2 underline-offset-4;
 }
+
+/* Typst Style */
+.code-image {
+  @apply flex justify-center;
+}
+.code-image svg {
+  @apply max-w-full;
+  @apply h-fit;
+}
+figcaption {
+  @apply text-center;
+}
