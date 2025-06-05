@@ -8,7 +8,7 @@
 
 #set text(lang: "zh")
 #show image: it => context {
-  if ("target" in dictionary(std) and target() == "html") {
+  if "target" in dictionary(std) {
     html.elem(
       "div",
       attrs: ("class": "code-image"),

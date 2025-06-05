@@ -68,4 +68,7 @@ html[data-theme="dark"] {
 }
 figcaption {
   @apply text-center;
+  @apply font-bold;
+  @apply text-foreground;
+  @apply text-lg;
 }
