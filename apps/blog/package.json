@@ -25,7 +25,7 @@
     "caniuse-lite": "^1.0.30001721",
     "lodash.kebabcase": "^4.1.1",
     "rehype-autolink-headings": "^7.1.0",
-    "@myriaddreamin/rehype-typst": "^0.6.0",
+    "rehype-katex": "^7.0.1",
     "@myriaddreamin/typst-ts-node-compiler": "^0.6.0",
     "rehype-slug": "^6.0.0",
     "remark-code-titles": "^0.1.2",

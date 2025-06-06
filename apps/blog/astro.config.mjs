@@ -14,7 +14,7 @@ import remarkCollapse from "remark-collapse";
 
 import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
-import rehypeTypst from "@myriaddreamin/rehype-typst";
+import rehypeKatex from "rehype-katex";
 
 import { SITE } from "./src/config";
 
@@ -58,7 +58,7 @@ export default defineConfig({
       remarkCodeTitles,
       remarkMath,
     ],
-    rehypePlugins: [rehypeSlug, rehypeAutolinkHeadings, rehypeTypst],
+    rehypePlugins: [rehypeSlug, rehypeAutolinkHeadings, rehypeKatex],
     shikiConfig: {
       themes: { light: "min-light", dark: "night-owl" },
       wrap: true,
