@@ -1,7 +1,7 @@
 export const SITE = {
-  website: "https://blog.bone6.com/",
+  website: "https://blog.sixbones.dev/",
   author: "zrr1999",
-  profile: "https://blog.bone6.com/",
+  profile: "https://blog.sixbones.dev/",
   desc: "一个普通的个人主页",
   title: "六个骨头的主页",
   ogImage: "og.png",
@@ -14,7 +14,7 @@ export const SITE = {
   editPost: {
     enabled: true,
     text: "建议修改",
-    url: "https://github.com/zrr1999/bone6.com/edit/main/",
+    url: "https://github.com/zrr1999/sixbones.dev/edit/main/",
   },
   dynamicOgImage: true,
   lang: "cn", // html lang code. Set this empty and default will be "en"

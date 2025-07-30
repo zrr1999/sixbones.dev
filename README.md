@@ -1,4 +1,4 @@
-# blog.bone6.com
+# blog.sixbones.dev
 
 ## 🧞 Commands
 
