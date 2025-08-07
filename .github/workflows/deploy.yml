@@ -29,12 +29,22 @@ jobs:
         run: |
           bun install --frozen-lockfile
           bun run build
-      - name: Create deployment branch 🌿
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Create blog branch 🌿
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./apps/blog/dist/
           publish_branch: blog
+          force_orphan: true
+          commit_message: ":rocket: deploy: "
+          user_name: "github-actions"
+          user_email: "github-actions@github.com"
+      - name: Create slides branch 🌿
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./apps/slides/dist/
+          publish_branch: slides
           force_orphan: true
           commit_message: ":rocket: deploy: "
           user_name: "github-actions"

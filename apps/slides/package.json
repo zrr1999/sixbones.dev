@@ -1,0 +1,31 @@
+{
+  "name": "@zrr-website/slides",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.4",
+    "@astrojs/preact": "^4.1.0",
+    "@tailwindcss/vite": "^4.1.8",
+    "@vite-pwa/astro": "^1.1.0",
+    "astro": "^5.12.8",
+    "preact": "^10.27.0",
+    "tailwindcss": "^4.1.8"
+  },
+  "devDependencies": {
+    "@astrojs/tailwind": "^6.0.2",
+    "@tailwindcss/typography": "^0.5.13",
+    "@types/bun": "^1.2.15",
+    "@types/github-slugger": "^2.0.0",
+    "@types/lodash.kebabcase": "^4.1.9",
+    "@typescript-eslint/parser": "^8.1.0",
+    "eslint-plugin-astro": "^1.3.1",
+    "vite": "^6.3.5"
+  },
+  "packageManager": "bun@1.2.15"
+}
