@@ -43,11 +43,10 @@ export function SlideList({ slides }: { slides: string[] }) {
     const card = document.getElementById(`slide-card-${slide}`);
     if (!card) return;
 
-    const containerRect = card.parentElement?.getBoundingClientRect();
-    if (!containerRect) return;
-
+    const cardRect = card.getBoundingClientRect();
+    
     requestAnimationFrame(() => {
-      card.style.transform = `translate(-${containerRect.left}px, -${containerRect.top}px)`;
+      card.style.transform = `translate(-${cardRect.left}px, -${cardRect.top}px)`;
       card.style.zIndex = "9999";
     });
   }
@@ -78,7 +77,7 @@ export function SlideList({ slides }: { slides: string[] }) {
       />
       {showWarning ? (
         <div class="flex min-h-[60vh] flex-1 items-center justify-center">
-          <div class="text-muted-foreground w-full p-8 text-center text-lg">
+          <div class="text-muted-foreground w-full p-8 text-center text-2xl">
             屏幕过窄，无法浏览幻灯片列表，请使用更大的屏幕。
           </div>
         </div>
@@ -94,27 +93,27 @@ export function SlideList({ slides }: { slides: string[] }) {
             id="hero"
             class="mx-auto flex w-full max-w-5xl flex-col items-start justify-center p-4"
           >
-            <h1 class="mt-16 mb-8 w-full text-center text-3xl font-bold text-foreground md:text-4xl">
+            <h1 class="mt-16 mb-8 w-full text-center text-4xl font-bold text-foreground md:text-5xl">
               我的幻灯片集
             </h1>
             {slides.length > 0 && (
-              <div class="grid w-full grid-cols-1 gap-8 md:grid-cols-2">
+              <div class="grid w-full grid-cols-1 gap-16 xl:grid-cols-2">
                 {slides.map(slide => (
                   <a
                     id={`slide-card-${slide}`}
                     href="#"
-                    class={`mx-auto block bg-white/50 dark:bg-muted/50 backdrop-blur transition-all duration-300 no-underline ${
+                    class={`mx-auto block bg-white/50 no-underline backdrop-blur transition-all duration-300 dark:bg-muted/50 ${
                       fullscreenSlide === slide
                         ? "h-[100vh] w-[100vw] p-12"
-                        : "h-[300px] w-[400px] p-4 rounded-2xl border border-border shadow hover:-translate-y-1 hover:shadow-lg focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-dashed"
+                        : "w-[500px] aspect-[4/3] rounded-2xl border border-border p-4 shadow hover:-translate-y-1 hover:shadow-lg focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-dashed"
                     }`}
                     onClick={e => handleCardClick(slide, e)}
                   >
                     <h2
-                      class={`m-0 my-4 text-center text-foreground ${
+                      class={`m-0 text-center text-foreground transition-all duration-300 ${
                         fullscreenSlide === slide
-                          ? "h-12 text-2xl font-bold"
-                          : "h-6 text-lg font-semibold"
+                          ? "h-36 text-5xl font-bold"
+                          : "h-12 text-2xl font-semibold"
                       }`}
                     >
                       {slide}
