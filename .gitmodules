@@ -1,3 +1,4 @@
 [submodule "hosting"]
 	path = hosting
 	url = https://github.com/zrr1999/hosting
+	branch = main
