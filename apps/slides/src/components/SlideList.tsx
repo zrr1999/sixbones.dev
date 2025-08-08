@@ -1,11 +1,9 @@
-import { useState, useEffect, useRef } from "preact/hooks";
+import { useState, useEffect } from "preact/hooks";
 
 export function SlideList({ slides }: { slides: string[] }) {
   const [showWarning, setShowWarning] = useState(false);
   const [scale, setScale] = useState(1);
   const [fullscreenSlide, setFullscreenSlide] = useState<string | null>(null);
-  const [visibleSlides, setVisibleSlides] = useState<Set<string>>(new Set());
-  const observerRef = useRef<IntersectionObserver | null>(null);
 
   // 响应式处理屏幕宽度
   useEffect(() => {
@@ -26,40 +24,6 @@ export function SlideList({ slides }: { slides: string[] }) {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
-
-  // 设置 Intersection Observer 用于懒加载
-  useEffect(() => {
-    if (!observerRef.current) {
-      observerRef.current = new IntersectionObserver(
-        entries => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              const slideId = entry.target.id.replace("slide-card-", "");
-              setVisibleSlides(prev => new Set([...prev, slideId]));
-            }
-          });
-        },
-        {
-          rootMargin: "50px",
-          threshold: 0.1,
-        }
-      );
-    }
-
-    // 观察所有幻灯片卡片
-    slides.forEach(slide => {
-      const card = document.getElementById(`slide-card-${slide}`);
-      if (card && observerRef.current) {
-        observerRef.current.observe(card);
-      }
-    });
-
-    return () => {
-      if (observerRef.current) {
-        observerRef.current.disconnect();
-      }
-    };
-  }, [slides]);
 
   function handleCardClick(slide: string, e: Event) {
     e.preventDefault();
@@ -129,7 +93,7 @@ export function SlideList({ slides }: { slides: string[] }) {
       >
         <section
           id="hero"
-          class="mx-auto flex w-full max-w-5xl flex-col items-start justify-center p-4"
+          class="flex w-auto flex-col items-start justify-center p-4"
         >
           <h1 class="mt-16 mb-8 w-full text-center text-4xl font-bold text-foreground md:text-5xl">
             我的幻灯片集
@@ -140,10 +104,10 @@ export function SlideList({ slides }: { slides: string[] }) {
                 <a
                   id={`slide-card-${slide}`}
                   href="#"
-                  class={`mx-auto block bg-white/50 no-underline backdrop-blur transition-all duration-300 dark:bg-muted/50 ${
+                  class={`block bg-white/50 no-underline backdrop-blur transition-all duration-300 dark:bg-muted/50 ${
                     fullscreenSlide === slide
                       ? "h-[100vh] w-[100vw] p-12"
-                      : "aspect-[4/3] w-[350px] rounded-2xl border border-border p-4 shadow hover:-translate-y-1 hover:shadow-lg focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-dashed"
+                      : "h-[260px] w-[350px] rounded-2xl border border-border p-4 shadow hover:-translate-y-1 hover:shadow-lg focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-dashed"
                   }`}
                   onClick={e => handleCardClick(slide, e)}
                 >
@@ -157,37 +121,12 @@ export function SlideList({ slides }: { slides: string[] }) {
                     {slide}
                   </h2>
                   <div class="flex aspect-video w-full items-center justify-center overflow-hidden rounded-md border border-border bg-gray-100 dark:bg-gray-800">
-                    {visibleSlides.has(slide) ? (
-                      <iframe
-                        src={`/slides/${slide}/index.html`}
-                        class="h-full w-full rounded-xl border-0 transition-all duration-300"
-                        loading="lazy"
-                        sandbox="allow-scripts allow-same-origin"
-                        title={`幻灯片预览-${slide}`}
-                      ></iframe>
-                    ) : (
-                      <div class="flex h-full w-full items-center justify-center text-gray-500 dark:text-gray-400">
-                        <svg
-                          class="h-8 w-8 animate-spin"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                        >
-                          <circle
-                            class="opacity-25"
-                            cx="12"
-                            cy="12"
-                            r="10"
-                            stroke="currentColor"
-                            stroke-width="4"
-                          ></circle>
-                          <path
-                            class="opacity-75"
-                            fill="currentColor"
-                            d="m4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                          ></path>
-                        </svg>
-                      </div>
-                    )}
+                    <iframe
+                      src={`/slides/${slide}/index.html`}
+                      class="h-full w-full rounded-xl border-0 transition-all duration-300"
+                      loading="lazy"
+                      title={`幻灯片预览-${slide}`}
+                    ></iframe>
                   </div>
                 </a>
               ))}
