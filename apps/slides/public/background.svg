@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1024" fill="none" viewBox="0 0 1440 1024">
+  <defs>
+    <!-- 主要渐变 -->
+    <linearGradient id="mainGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#667eea" stop-opacity="0.1"/>
+      <stop offset="50%" stop-color="#764ba2" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#f093fb" stop-opacity="0.12"/>
+    </linearGradient>
+    
+    <!-- 次要渐变用于形状 -->
+    <linearGradient id="shape1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4facfe" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#00f2fe" stop-opacity="0.08"/>
+    </linearGradient>
+    
+    <linearGradient id="shape2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#a8edea" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#fed6e3" stop-opacity="0.06"/>
+    </linearGradient>
+    
+    <linearGradient id="shape3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff9a8b" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#fecfef" stop-opacity="0.08"/>
+    </linearGradient>
+    
+    <!-- 径向渐变用于光效 -->
+    <radialGradient id="glow1" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    
+    <radialGradient id="glow2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#4facfe" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#4facfe" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  
+  <!-- 主背景 -->
+  <rect width="100%" height="100%" fill="url(#mainGradient)"/>
+  
+  <!-- 大型几何形状 - 左上角 -->
+  <path d="M-100 200 Q200 100 400 250 Q500 350 300 500 Q100 600 -100 400 Z" 
+        fill="url(#shape1)" 
+        transform="rotate(-15 150 300)"/>
+  
+  <!-- 中等几何形状 - 右侧 -->
+  <ellipse cx="1200" cy="300" rx="250" ry="180" 
+           fill="url(#shape2)" 
+           transform="rotate(30 1200 300)"/>
+  
+  <!-- 幻灯片卡片形状暗示 - 中心偏右 -->
+  <rect x="900" y="150" width="180" height="120" rx="15" 
+        fill="url(#shape3)" 
+        transform="rotate(-20 990 210)" 
+        opacity="0.6"/>
+  
+  <rect x="950" y="200" width="160" height="100" rx="12" 
+        fill="url(#shape2)" 
+        transform="rotate(-15 1030 250)" 
+        opacity="0.4"/>
+  
+  <!-- 小装饰圆形 -->
+  <circle cx="300" cy="150" r="40" fill="url(#glow1)"/>
+  <circle cx="1100" cy="600" r="60" fill="url(#glow2)"/>
+  <circle cx="200" cy="700" r="25" fill="url(#shape1)"/>
+  
+  <!-- 底部波浪形状 -->
+  <path d="M0 800 Q360 750 720 780 Q1080 810 1440 760 L1440 1024 L0 1024 Z" 
+        fill="url(#shape2)"/>
+  
+  <!-- 顶部装饰线条 -->
+  <path d="M0 100 Q300 80 600 90 Q900 100 1200 85 Q1320 82 1440 88" 
+        stroke="url(#shape1)" 
+        stroke-width="2" 
+        fill="none" 
+        opacity="0.5"/>
+  
+  <!-- 光效叠加 -->
+  <ellipse cx="720" cy="300" rx="400" ry="200" 
+           fill="url(#glow1)" 
+           opacity="0.3"/>
+  
+  <!-- 网格装饰 -->
+  <g opacity="0.03">
+    <defs>
+      <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+        <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#666" stroke-width="1"/>
+      </pattern>
+    </defs>
+    <rect width="100%" height="100%" fill="url(#grid)"/>
+  </g>
+</svg>
