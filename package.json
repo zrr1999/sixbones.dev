@@ -16,6 +16,7 @@
   "scripts": {
     "dev": "turbo dev --filter=./apps/*",
     "build": "turbo build --filter=./apps/*",
+    "preview": "turbo preview --filter=./apps/*",
     "format:check": "prettier --check .",
     "format": "prettier --write .",
     "lint": "eslint ."

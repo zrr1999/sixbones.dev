@@ -104,7 +104,7 @@ export function SlideList({ slides }: { slides: string[] }) {
                 <a
                   id={`slide-card-${slide}`}
                   href="#"
-                  class={`block bg-white/50 no-underline backdrop-blur transition-all duration-300 dark:bg-muted/50 ${
+                  class={`overflow-y-auto block bg-white/50 no-underline backdrop-blur transition-all duration-300 dark:bg-muted/50 ${
                     fullscreenSlide === slide
                       ? "h-[100vh] w-[100vw] p-12"
                       : "h-[260px] w-[350px] rounded-2xl border border-border p-4 shadow hover:-translate-y-1 hover:shadow-lg focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-dashed"
