@@ -2,24 +2,26 @@
   "name": "zrr-website",
   "version": "0.1.0",
   "devDependencies": {
-    "turbo": "^2.5.3",
     "astro-eslint-parser": "^1.2.2",
-    "eslint": "^9.28.0",
+    "eslint": "^9.37.0",
+    "eslint-config-turbo": "^2.5.8",
     "eslint-plugin-astro": "^1.3.1",
-    "globals": "^16.2.0",
-    "prettier": "^3.5.3",
+    "globals": "^16.4.0",
+    "prettier": "^3.6.2",
     "prettier-plugin-astro": "^0.14.1",
-    "prettier-plugin-tailwindcss": "^0.6.12",
-    "typescript-eslint": "^8.33.0"
+    "prettier-plugin-tailwindcss": "^0.6.14",
+    "turbo": "^2.5.8",
+    "typescript-eslint": "^8.46.0"
   },
   "packageManager": "bun@1.2.15",
   "scripts": {
     "dev": "turbo dev --filter=./apps/*",
     "build": "turbo build --filter=./apps/*",
     "preview": "turbo preview --filter=./apps/*",
-    "format:check": "prettier --check .",
-    "format": "prettier --write .",
-    "lint": "eslint ."
+    "format": "turbo format",
+    "format:check": "turbo format:check",
+    "lint": "turbo lint",
+    "lint:check": "turbo lint:check"
   },
   "type": "module",
   "workspaces": [
