@@ -43,11 +43,11 @@ EXSI 方案相对比较封闭，适合追求稳定的玩家，而 PVE 方案更�
 enp3s0 (eth1)，enp4s0 (eth2)，enp5s0 (eth3) 分别作为 LAN 口，
 enp6s0 (eth4)，enp7s0 (eth5) 作为 WAN 口。
 
-<!-- TODO: 直通一些其他设备 -->
+> **提示**: 网口直通功能将在后续版本中完善，目前可以通过 Incus 的设备管理功能实现基本的网口分配。
 
 ## 具体步骤
 
-<!-- TODO: 增加一些介绍安装系统的文章 -->
+> **注意**: 以下步骤假设你已经有一台可以正常运行的 Linux 主机。关于如何安装和配置 ArchLinux 系统，可以参考 [ArchLinux 官方安装指南](https://wiki.archlinux.org/title/Installation_guide)。
 
 首先，我们需要保证有一台可以使用的 Linux 主机，
 我使用的是 ArchLinux，可以使用下面命令安装 [incus](https://github.com/lxc/incus)
@@ -90,9 +90,30 @@ incus config device add ikuai iso-ikuai-volume disk pool=default source=iso-ikua
 
 具体内容参考 [zrr1999/zrr-compose](https://github.com/zrr1999/zrr-compose)。
 
-未完待续
+这个仓库包含了常用的网络服务配置，包括：
 
-<!-- TODO: 补充内容 -->
+- **Speedtest Tracker**: 网络速度测试和监控
+- **Alist**: 文件列表程序，支持多种存储
+- **其他服务**: 根据需求可以添加更多 Docker 服务
+
+## 总结与展望
+
+通过 ArchLinux + Incus 的方案，我们可以构建一个轻量级、灵活且易于维护的 All-in-One 主机。相比传统的 ESXI 和 PVE 方案：
+
+**优势**：
+
+- 更轻量级，资源占用更少
+- 更加开放，可以使用任何 Linux 发行版
+- 命令行操作更加灵活
+- 容易备份和迁移配置
+
+**劣势**：
+
+- 需要一定的 Linux 基础
+- 缺少图形化管理界面（虽然有 incus-ui，但功能有限）
+- 社区相对较小，遇到问题可能需要自行解决
+
+如果你符合本文开头提到的适合人群，不妨试试这个方案！
 
 ### 搭建基于 ArchLinux 的 HomeAssistant
 
