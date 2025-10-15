@@ -1,6 +1,7 @@
 ---
 import Layout from "@/components/Layout.astro";
 import Card from "@/components/Card.astro";
+const currentYear = new Date().getFullYear();
 ---
 
 <Layout>
@@ -12,7 +13,7 @@ import Card from "@/components/Card.astro";
         👋 你好，我是六个骨头
       </h1>
       <p class="text-xl text-gray-600 dark:text-gray-300">
-        西安电子科技大学计算机科学与技术硕士生
+        百度飞桨高级研发工程师
       </p>
       <div class="mt-4 text-gray-600 dark:text-gray-400">
         <p>智能科学与技术 学士 (2018 - 2022)</p>
@@ -55,18 +56,14 @@ import Card from "@/components/Card.astro";
           icon="📄"
           external={true}
         />
-        <Card
-          title="关于我"
-          description="更多关于我的信息、兴趣爱好和联系方式"
-          href="https://github.com/zrr1999"
-          icon="👤"
-          external={true}
-        />
       </div>
     </div>
 
     <footer class="mt-16 text-center text-sm text-gray-500 dark:text-gray-400">
-      <p>© 2024 六个骨头 (zrr1999). All rights reserved.</p>
+      <span
+        >&#169; 2024-{currentYear}
+        <a href="https://github.com/zrr1999">Zhan Rongrui</a></span
+      >
     </footer>
   </main>
 </Layout>
