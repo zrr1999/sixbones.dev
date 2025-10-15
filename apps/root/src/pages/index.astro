@@ -1,0 +1,72 @@
+---
+import Layout from "@/components/Layout.astro";
+import Card from "@/components/Card.astro";
+---
+
+<Layout>
+  <main class="container mx-auto px-4 py-16">
+    <div class="mb-16 text-center">
+      <h1
+        class="mb-4 text-5xl font-bold text-gray-900 md:text-6xl dark:text-white"
+      >
+        👋 你好，我是六个骨头
+      </h1>
+      <p class="text-xl text-gray-600 dark:text-gray-300">
+        西安电子科技大学计算机科学与技术硕士生
+      </p>
+      <div class="mt-4 text-gray-600 dark:text-gray-400">
+        <p>智能科学与技术 学士 (2018 - 2022)</p>
+        <p>计算机科学与技术 硕士 (2022 - 2025)</p>
+      </div>
+    </div>
+
+    <div class="mx-auto max-w-6xl">
+      <h2
+        class="mb-8 text-center text-3xl font-bold text-gray-800 dark:text-gray-100"
+      >
+        探索我的内容
+      </h2>
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <Card
+          title="博客"
+          description="我的技术博客，分享学习笔记、技术文章和项目经验"
+          href="https://blog.sixbones.dev"
+          icon="📝"
+          external={true}
+        />
+        <Card
+          title="幻灯片"
+          description="各种技术演讲和课程的幻灯片集合"
+          href="https://slides.sixbones.dev"
+          icon="📊"
+          external={true}
+        />
+        <Card
+          title="GitHub"
+          description="查看我的开源项目和代码贡献"
+          href="https://github.com/zrr1999"
+          icon="💻"
+          external={true}
+        />
+        <Card
+          title="简历"
+          description="了解我的教育背景、技能和工作经历"
+          href="https://blog.sixbones.dev/resume.typ"
+          icon="📄"
+          external={true}
+        />
+        <Card
+          title="关于我"
+          description="更多关于我的信息、兴趣爱好和联系方式"
+          href="https://github.com/zrr1999"
+          icon="👤"
+          external={true}
+        />
+      </div>
+    </div>
+
+    <footer class="mt-16 text-center text-sm text-gray-500 dark:text-gray-400">
+      <p>© 2024 六个骨头 (zrr1999). All rights reserved.</p>
+    </footer>
+  </main>
+</Layout>
