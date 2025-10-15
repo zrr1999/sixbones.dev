@@ -14,6 +14,9 @@ export default [
         ...globals.browser,
         ...globals.node,
       },
+      parserOptions: {
+        tsconfigRootDir: new URL('.', import.meta.url).pathname,
+      },
     },
   },
   {
@@ -23,6 +26,7 @@ export default [
       parserOptions: {
         parser: "@typescript-eslint/parser",
         extraFileExtensions: [".astro"],
+        tsconfigRootDir: new URL('.', import.meta.url).pathname,
       },
     },
   },
