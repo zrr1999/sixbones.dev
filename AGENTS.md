@@ -6,6 +6,14 @@ AI 代理配置和工作流程说明文档。
 
 本项目使用 AI 代理来协助开发和维护工作。本文档描述了代理的配置、工作流程和最佳实践。
 
+### 项目结构
+
+项目包含以下应用：
+
+- `apps/root/` - 个人主页应用（部署到根域名 sixbones.dev）
+- `apps/blog/` - 博客应用（部署到 blog.sixbones.dev）
+- `apps/slides/` - 幻灯片应用（部署到 slides.sixbones.dev）
+
 ## 🤖 可用代理
 
 ### 代码优化代理
