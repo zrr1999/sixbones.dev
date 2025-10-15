@@ -61,6 +61,20 @@
         "vue": "^3.4.19",
       },
     },
+    "apps/root": {
+      "name": "@zrr-website/root",
+      "version": "0.0.1",
+      "dependencies": {
+        "@astrojs/check": "^0.9.4",
+        "@tailwindcss/vite": "^4.1.8",
+        "astro": "5.14.3",
+        "tailwindcss": "^4.1.8",
+      },
+      "devDependencies": {
+        "@types/bun": "^1.2.15",
+        "vite": "^6.3.5",
+      },
+    },
     "apps/slides": {
       "name": "@zrr-website/slides",
       "version": "0.0.1",
@@ -808,6 +822,8 @@
     "@vue/shared": ["@vue/shared@3.5.16", "https://registry.npmmirror.com/@vue/shared/-/shared-3.5.16.tgz", {}, "sha512-c/0fWy3Jw6Z8L9FmTyYfkpM5zklnqqa9+a6dz3DvONRKW2NEbh46BP0FHuLFSWi2TnQEtp91Z6zOWNrU6QiyPg=="],
 
     "@zrr-website/blog": ["@zrr-website/blog@workspace:apps/blog"],
+
+    "@zrr-website/root": ["@zrr-website/root@workspace:apps/root"],
 
     "@zrr-website/slides": ["@zrr-website/slides@workspace:apps/slides"],
 
