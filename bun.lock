@@ -24,11 +24,12 @@
         "@astrojs/mdx": "4.3.7",
         "@astrojs/rss": "4.0.12",
         "@myriaddreamin/typst-ts-node-compiler": "^0.6.0",
+        "@pagefind/default-ui": "^1.4.0",
         "@resvg/resvg-js": "^2.6.2",
         "@tailwindcss/vite": "^4.1.8",
         "@vite-pwa/astro": "^1.1.0",
         "astro": "5.14.3",
-        "astro-pagefind": "^1.8.3",
+        "astro-pagefind": "^1.8.5",
         "astro-typst": "^0.9.2",
         "caniuse-lite": "^1.0.30001721",
         "dayjs": "^1.11.13",
@@ -531,7 +532,7 @@
 
     "@pagefind/darwin-x64": ["@pagefind/darwin-x64@1.3.0", "https://registry.npmmirror.com/@pagefind/darwin-x64/-/darwin-x64-1.3.0.tgz", { "os": "darwin", "cpu": "x64" }, "sha512-zlGHA23uuXmS8z3XxEGmbHpWDxXfPZ47QS06tGUq0HDcZjXjXHeLG+cboOy828QIV5FXsm9MjfkP5e4ZNbOkow=="],
 
-    "@pagefind/default-ui": ["@pagefind/default-ui@1.3.0", "https://registry.npmmirror.com/@pagefind/default-ui/-/default-ui-1.3.0.tgz", {}, "sha512-CGKT9ccd3+oRK6STXGgfH+m0DbOKayX6QGlq38TfE1ZfUcPc5+ulTuzDbZUnMo+bubsEOIypm4Pl2iEyzZ1cNg=="],
+    "@pagefind/default-ui": ["@pagefind/default-ui@1.4.0", "https://registry.npmmirror.com/@pagefind/default-ui/-/default-ui-1.4.0.tgz", {}, "sha512-wie82VWn3cnGEdIjh4YwNESyS1G6vRHwL6cNjy9CFgNnWW/PGRjsLq300xjVH5sfPFK3iK36UxvIBymtQIEiSQ=="],
 
     "@pagefind/linux-arm64": ["@pagefind/linux-arm64@1.3.0", "https://registry.npmmirror.com/@pagefind/linux-arm64/-/linux-arm64-1.3.0.tgz", { "os": "linux", "cpu": "arm64" }, "sha512-8lsxNAiBRUk72JvetSBXs4WRpYrQrVJXjlRRnOL6UCdBN9Nlsz0t7hWstRk36+JqHpGWOKYiuHLzGYqYAqoOnQ=="],
 
@@ -863,7 +864,7 @@
 
     "astro-integration-kit": ["astro-integration-kit@0.18.0", "https://registry.npmmirror.com/astro-integration-kit/-/astro-integration-kit-0.18.0.tgz", { "dependencies": { "pathe": "^1.1.2", "recast": "^0.23.7" }, "peerDependencies": { "astro": "^4.12.0 || ^5.0.0" } }, "sha512-Z0QW5IQjosuKQDEGYYkvUX6EhEtrmE4/oViqWz23QveV8U7AuyFsTdg00WRNPevWZl/5a4lLUeDpv4bCRynRRg=="],
 
-    "astro-pagefind": ["astro-pagefind@1.8.3", "https://registry.npmmirror.com/astro-pagefind/-/astro-pagefind-1.8.3.tgz", { "dependencies": { "@pagefind/default-ui": "^1.2.0", "pagefind": "^1.2.0", "sirv": "^3.0.0" }, "peerDependencies": { "astro": "^2.0.4 || ^3 || ^4 || ^5" } }, "sha512-Nfo1TdlEHdkXTiI0KpimLqX6awK3qWTil7IOJvk5Q8x+0VBTpIEp9QvGgoAxXDe3upAHLVsg4y7U1uUPm7GC9w=="],
+    "astro-pagefind": ["astro-pagefind@1.8.5", "https://registry.npmmirror.com/astro-pagefind/-/astro-pagefind-1.8.5.tgz", { "dependencies": { "@pagefind/default-ui": "^1.2.0", "pagefind": "^1.2.0", "sirv": "^3.0.0" }, "peerDependencies": { "astro": "^2.0.4 || ^3 || ^4 || ^5" } }, "sha512-CVhKKA9bTQ7hLsHk9KTNDzOdgR4EI04gn0mjDGfnXzaHx7rL92YkNpFM5AoFl9NWmOUbaIFC2DN7Yvs/ZFPRdA=="],
 
     "astro-typst": ["astro-typst@0.9.2", "https://registry.npmmirror.com/astro-typst/-/astro-typst-0.9.2.tgz", { "dependencies": { "@myriaddreamin/typst-ts-node-compiler": "0.6.0", "@myriaddreamin/typst-ts-renderer": "0.6.0", "@myriaddreamin/typst.ts": "0.6.0", "@rollup/plugin-node-resolve": "^16.0.1", "astro-integration-kit": "^0.18.0", "cheerio": "^1.0.0" }, "peerDependencies": { "astro": ">= 3.0.0" } }, "sha512-BfwdmgnJXnU1baQQ5Fr1GB4R4J/DmzUIGfEri0qfNNgNXJ5qx81mC/HX0MXUgCur5G/LNzMTNGJPEvdXPKnyLw=="],
 
