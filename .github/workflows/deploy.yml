@@ -49,12 +49,12 @@ jobs:
           commit_message: ":rocket: deploy: "
           user_name: "github-actions"
           user_email: "github-actions@github.com"
-      - name: Create home branch 🌿
+      - name: Create root domain branch 🌿
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./apps/home/dist/
-          publish_branch: home
+          publish_branch: root
           force_orphan: true
           commit_message: ":rocket: deploy: "
           user_name: "github-actions"
