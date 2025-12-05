@@ -16,7 +16,6 @@
     "@astrojs/check": "^0.9.4",
     "@astrojs/mdx": "4.3.7",
     "@astrojs/rss": "4.0.12",
-    "@myriaddreamin/typst-ts-node-compiler": "^0.6.0",
     "@resvg/resvg-js": "^2.6.2",
     "@tailwindcss/vite": "^4.1.8",
     "@vite-pwa/astro": "^1.1.0",
