@@ -28,7 +28,7 @@
     "@types/github-slugger": "^2.0.0",
     "@types/lodash.kebabcase": "^4.1.9",
     "@typescript-eslint/parser": "^8.1.0",
-    "vite": "^6.3.5"
+    "vite": "^7.0.0"
   },
   "packageManager": "bun@1.2.15"
 }
