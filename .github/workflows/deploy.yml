@@ -29,7 +29,8 @@ jobs:
         run: |
           bun install --frozen-lockfile
           bun run build
-      - name: Create blog branch 🌿
+      - name: Create blog domain branch 🌿
+        if: github.event_name != 'pull_request'
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
@@ -39,7 +40,8 @@ jobs:
           commit_message: ":rocket: deploy: "
           user_name: "github-actions"
           user_email: "github-actions@github.com"
-      - name: Create slides branch 🌿
+      - name: Create slides domain branch 🌿
+        if: github.event_name != 'pull_request'
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
@@ -50,6 +52,7 @@ jobs:
           user_name: "github-actions"
           user_email: "github-actions@github.com"
       - name: Create root domain branch 🌿
+        if: github.event_name != 'pull_request'
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
