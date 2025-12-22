@@ -9,8 +9,8 @@
     "astro": "astro",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "lint": "eslint .",
-    "lint:check": "eslint --quiet ."
+    "lint": "oxlint . --fix",
+    "lint:check": "oxlint ."
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
@@ -47,7 +47,6 @@
     "@types/github-slugger": "^2.0.0",
     "@types/lodash.kebabcase": "^4.1.9",
     "@types/react": "^19.1.0",
-    "@typescript-eslint/parser": "^8.1.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "vue": "^3.4.19",
