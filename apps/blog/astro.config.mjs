@@ -6,6 +6,7 @@ import tailwindcss from "@tailwindcss/vite";
 import AstroPWA from "@vite-pwa/astro";
 import pagefind from "astro-pagefind";
 import mdx from "@astrojs/mdx";
+import mermaid from "astro-mermaid";
 import { typst } from "astro-typst";
 import remarkMath from "remark-math";
 import remarkCodeTitles from "remark-code-titles";
@@ -26,6 +27,7 @@ export default defineConfig({
     defaultLocale: "zh-cn",
   },
   integrations: [
+    mermaid({ autoTheme: true }),
     mdx(),
     typst({
       options: {
