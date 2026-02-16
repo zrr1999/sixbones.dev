@@ -1,69 +1,143 @@
 ---
 import Layout from "@/components/Layout.astro";
 import Card from "@/components/Card.astro";
+import {
+  BookOpen,
+  CodeXml,
+  ExternalLink,
+  FileText,
+  Presentation,
+} from "@lucide/astro";
 const currentYear = new Date().getFullYear();
 ---
 
 <Layout>
-  <main class="container mx-auto px-4 py-16">
-    <div class="mb-16 text-center">
-      <h1
-        class="mb-4 text-5xl font-bold text-gray-900 md:text-6xl dark:text-white"
-      >
-        👋 你好，我是六个骨头
-      </h1>
-      <p class="text-xl text-gray-600 dark:text-gray-300">
-        百度飞桨研发工程师
-      </p>
-      <div class="mt-4 text-gray-600 dark:text-gray-400">
-        <p>西安电子科技大学 智能科学与技术 学士 (2018 - 2022)</p>
-        <p>西安电子科技大学 计算机科学与技术 硕士 (2022 - 2025)</p>
+  <main class="mx-auto max-w-6xl px-5 pt-14 pb-16 md:px-8 md:pt-20 md:pb-20">
+    <section class="reveal">
+      <div class="mx-auto max-w-3xl text-center">
+        <div
+          class="mx-auto mb-6 inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/55 px-3 py-1 text-xs text-(--muted) shadow-sm backdrop-blur dark:border-white/12 dark:bg-white/6"
+        >
+          <span class="h-1.5 w-1.5 rounded-full bg-(--accent)"></span>
+          <span>sixbones.dev</span>
+          <span class="text-(--subtle)">/</span>
+          <span>Engineering</span>
+        </div>
+
+        <h1
+          class="display-font text-5xl font-semibold tracking-tight text-(--fg) md:text-6xl"
+        >
+          你好，我是六个骨头
+        </h1>
+        <p class="mt-5 text-lg leading-relaxed text-(--muted) md:text-xl">
+          百度飞桨研发工程师。做一些有意思的项目，也写一点对自己有用的笔记。
+        </p>
+
+        <div
+          class="mt-7 flex flex-wrap justify-center gap-2 text-sm text-(--muted)"
+        >
+          <span
+            class="rounded-full border border-black/10 bg-white/55 px-3 py-1 shadow-sm backdrop-blur dark:border-white/12 dark:bg-white/6"
+            >西电 智能科学与技术 (2018-2022)</span
+          >
+          <span
+            class="rounded-full border border-black/10 bg-white/55 px-3 py-1 shadow-sm backdrop-blur dark:border-white/12 dark:bg-white/6"
+            >西电 计算机科学与技术 (2022-2025)</span
+          >
+        </div>
+
+        <div class="mt-10 flex flex-wrap justify-center gap-3">
+          <a
+            href="https://blog.sixbones.dev"
+            class="inline-flex items-center gap-2 rounded-full bg-(--fg) px-5 py-2 text-sm font-medium text-(--bg) shadow-sm transition hover:opacity-90"
+          >
+            <BookOpen aria-hidden="true" size={18} stroke-width={2} />
+            阅读博客
+          </a>
+          <a
+            href="https://github.com/zrr1999"
+            class="inline-flex items-center gap-2 rounded-full border border-black/12 bg-white/55 px-5 py-2 text-sm font-medium text-(--fg) shadow-sm backdrop-blur transition hover:bg-white/75 dark:border-white/12 dark:bg-white/6 dark:hover:bg-white/9"
+          >
+            <ExternalLink aria-hidden="true" size={18} stroke-width={2} />
+            GitHub
+          </a>
+        </div>
       </div>
+    </section>
+
+    <div
+      class="reveal reveal-2 mx-auto mt-12 h-px max-w-3xl bg-linear-to-r from-transparent via-black/15 to-transparent md:mt-14 dark:via-white/15"
+      aria-hidden="true"
+    >
     </div>
 
-    <div class="mx-auto max-w-6xl">
-      <h2
-        class="mb-8 text-center text-3xl font-bold text-gray-800 dark:text-gray-100"
-      >
-        探索我的内容
-      </h2>
-      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+    <section class="reveal reveal-2 mt-14 md:mt-16">
+      <div class="flex items-end justify-between gap-6">
+        <div>
+          <h2 class="text-2xl font-semibold tracking-tight text-(--fg)">
+            探索我的内容
+          </h2>
+          <p class="mt-2 text-sm text-(--muted)">
+            博客、幻灯片、开源项目，以及一份简历。
+          </p>
+        </div>
+        <div class="hidden text-sm text-(--subtle) md:block">持续更新中</div>
+      </div>
+
+      <div class="mt-7 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
         <Card
           title="博客"
-          description="我的技术博客，分享学习笔记、技术文章和项目经验"
+          description="我的技术博客，记录学习笔记、技术文章和项目经验"
           href="https://blog.sixbones.dev"
-          icon="📝"
           external={true}
-        />
+        >
+          <BookOpen slot="icon" size={24} stroke-width={1.8} />
+        </Card>
         <Card
           title="幻灯片"
-          description="各种技术演讲和课程的幻灯片集合"
+          description="技术演讲、课程分享，以及项目汇报的幻灯片合集"
           href="https://slides.sixbones.dev"
-          icon="📊"
           external={true}
-        />
+        >
+          <Presentation slot="icon" size={24} stroke-width={1.8} />
+        </Card>
         <Card
           title="GitHub"
-          description="查看我的开源项目和代码贡献"
+          description="开源项目、代码贡献和一些实验性质的仓库"
           href="https://github.com/zrr1999"
-          icon="💻"
           external={true}
-        />
+        >
+          <CodeXml slot="icon" size={24} stroke-width={1.8} />
+        </Card>
         <Card
           title="简历"
-          description="了解我的教育背景、技能和工作经历"
+          description="教育背景、技能栈与工作经历（Typst）"
           href="https://blog.sixbones.dev/resume.typ"
-          icon="📄"
           external={true}
-        />
+        >
+          <FileText slot="icon" size={24} stroke-width={1.8} />
+        </Card>
       </div>
-    </div>
+    </section>
 
-    <footer class="mt-16 text-center text-sm text-gray-500 dark:text-gray-400">
-      <span
-        >&#169; 2024-{currentYear}
-        <a href="https://github.com/zrr1999">Zhan Rongrui</a></span
-      >
+    <footer class="reveal reveal-3 mt-16 text-center text-sm text-(--subtle)">
+      <span>
+        &#169; 2024-{currentYear}
+        <a
+          class="underline decoration-black/20 underline-offset-4 hover:decoration-black/40 dark:decoration-white/25 dark:hover:decoration-white/50"
+          href="https://github.com/zrr1999">Zhan Rongrui</a
+        >
+      </span>
     </footer>
   </main>
 </Layout>
+
+<style>
+  @media (prefers-reduced-motion: reduce) {
+    .reveal,
+    .reveal-2,
+    .reveal-3 {
+      animation: none !important;
+    }
+  }
+</style>

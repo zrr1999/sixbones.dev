@@ -185,30 +185,30 @@ if __name__ == "__main__":
 Welford算法还支持并行计算，可以合并多个部分结果：
 
 ```python
-def combine_welford_stats(stats1: tuple[int, float, float], 
+def combine_welford_stats(stats1: tuple[int, float, float],
                          stats2: tuple[int, float, float]) -> tuple[int, float, float]:
     """合并两个Welford统计结果
-    
+
     Args:
         stats1, stats2: (count, mean, m2) 元组
-    
+
     Returns:
         合并后的 (count, mean, m2) 元组
     """
     count1, mean1, m2_1 = stats1
     count2, mean2, m2_2 = stats2
-    
+
     if count1 == 0:
         return stats2
     if count2 == 0:
         return stats1
-    
+
     # 合并计算
     count = count1 + count2
     delta = mean2 - mean1
     mean = (count1 * mean1 + count2 * mean2) / count
     m2 = m2_1 + m2_2 + delta * delta * count1 * count2 / count
-    
+
     return count, mean, m2
 
 # 并行计算示例
@@ -216,33 +216,33 @@ def parallel_welford_example():
     """并行Welford算法示例"""
     import concurrent.futures
     import numpy as np
-    
+
     # 生成大量数据
     data = np.random.normal(50, 10, 10000)
-    
+
     # 分割数据
     chunk_size = len(data) // 4
     chunks = [data[i:i+chunk_size] for i in range(0, len(data), chunk_size)]
-    
+
     def process_chunk(chunk):
         """处理数据块"""
         calc = WelfordCalculator()
         for value in chunk:
             calc.update(value)
         return calc.count, calc.mean, calc.m2
-    
+
     # 并行处理
     with concurrent.futures.ThreadPoolExecutor() as executor:
         results = list(executor.map(process_chunk, chunks))
-    
+
     # 合并结果
     final_stats = results[0]
     for stats in results[1:]:
         final_stats = combine_welford_stats(final_stats, stats)
-    
+
     count, mean, m2 = final_stats
     variance = m2 / (count - 1)
-    
+
     print(f"并行Welford结果：均值={mean:.6f}, 方差={variance:.6f}")
     print(f"NumPy验证：均值={np.mean(data):.6f}, 方差={np.var(data, ddof=1):.6f}")
 ```
