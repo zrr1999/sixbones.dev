@@ -4,6 +4,7 @@ author: "六个骨头"
 description: "介绍 PyCapsule 的概念、原理和在 DLPack 中的作用"
 pubDatetime: 2026-01-19
 modDatetime: 2026-01-25
+featured: true
 tags: ["Python", "C", "DLPack", "PyCapsule", "Boning"]
 ---
 
