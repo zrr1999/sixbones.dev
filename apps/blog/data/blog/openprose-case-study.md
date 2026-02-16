@@ -13,7 +13,7 @@ tags: ["OpenProse", "多智能体", "设计范式", "DSL", "确定性"]
 
 [OpenProse](https://github.com/openprose/prose) 旨在提供一种「面向 AI 会话的编程语言」。其核心理念是：**长期运行的 AI 会话本身即一台图灵完备的计算机，OpenProse 是为其设计的编程语言**。
 
-```prose
+```yaml
 # 定义专门的智能体
 agent researcher:
   model: sonnet
@@ -45,7 +45,7 @@ OpenProse 的文档明确其设计原则：追求「**理解**」而非「**解�
 根据其文档，会话同时扮演解释器与运行时，**不依赖严格的形式匹配，而依赖对上下文与意图的理解**。这带来两类现象：
 
 1. **语法作为「建议」而非「指令」**
-   ```prose
+   ```yaml
    parallel:
      a = session "Task A"
      b = session "Task B"
@@ -54,7 +54,7 @@ OpenProse 的文档明确其设计原则：追求「**理解**」而非「**解�
    - OpenProse：大模型识别出「应并行」，但具体如何调度、是否真并行，由大模型决定。
 
 2. **执行逻辑内嵌于大模型**
-   ```prose
+   ```yaml
    repeat 3:
      session "Improve the draft"
    ```
@@ -68,7 +68,7 @@ OpenProse 在概念上要求大模型充当**符合规范的执行器**，而大
 **类比**：若让演员「扮演计算器」计算「234 + 567」——多数时候会得到 801，但无法保证下次不会：因计算错误得到 800 或 802；因理解偏差将题目当作「估算」而给出约数；或因自行判断「问题无意义」而拒绝回答。
 
 **示例**：对于按顺序的两个 session：
-```prose
+```yaml
 session: researcher
   prompt: "Research quantum computing"
 
@@ -95,7 +95,7 @@ session: writer
 
 形式化语法容易让人产生**确定性错觉**。例如：
 
-```prose
+```yaml
 for item in items:
   result = session "Process {item}"
   if **result is valid**:
