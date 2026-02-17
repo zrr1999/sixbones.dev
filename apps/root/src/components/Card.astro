@@ -12,7 +12,7 @@ const { title, description, href, icon = "🔗", external = false } = Astro.prop
 
 <a
   href={href}
-  class="group relative block overflow-hidden rounded-2xl border border-(--card-border) bg-(--card) p-6 shadow-[0_12px_40px_rgba(0,0,0,0.14)] backdrop-blur transition will-change-transform hover:-translate-y-1 hover:border-black/18 hover:bg-(--card-hover) dark:hover:border-white/18"
+  class="group relative flex flex-col overflow-hidden rounded-2xl border border-(--card-border) bg-(--card) p-6 shadow-[0_12px_40px_rgba(0,0,0,0.14)] backdrop-blur transition will-change-transform hover:-translate-y-1 hover:border-black/18 hover:bg-(--card-hover) dark:hover:border-white/18"
   target={external ? "_blank" : undefined}
   rel={external ? "noopener noreferrer" : undefined}
 >
@@ -23,7 +23,7 @@ const { title, description, href, icon = "🔗", external = false } = Astro.prop
   </div>
   <div class="mb-4 flex items-center gap-3">
     <div
-      class="grid h-11 w-11 place-items-center rounded-2xl border border-black/10 bg-black/5 dark:border-white/10 dark:bg-white/5"
+      class="grid h-11 w-11 place-items-center overflow-hidden rounded-2xl border border-black/10 bg-black/5 dark:border-white/10 dark:bg-white/5"
       aria-hidden="true"
     >
       <slot name="icon">{icon}</slot>
@@ -32,10 +32,10 @@ const { title, description, href, icon = "🔗", external = false } = Astro.prop
       {title}
     </h2>
   </div>
-  <p class="text-sm leading-relaxed text-(--muted)">
+  <p class="flex-1 text-sm leading-relaxed text-(--muted)">
     {description}
   </p>
-  <div class="mt-5 flex items-center justify-between">
+  <div class="mt-auto flex items-center justify-between pt-5">
     <span
       class="inline-flex items-center gap-2 text-sm font-medium text-(--fg)/90"
     >

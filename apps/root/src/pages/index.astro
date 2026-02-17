@@ -5,10 +5,40 @@ import {
   BookOpen,
   CodeXml,
   ExternalLink,
-  FileText,
   Presentation,
 } from "@lucide/astro";
+
 const currentYear = new Date().getFullYear();
+
+const friends = [
+  {
+    name: "时雨梦之零",
+    url: "https://nyakku.moe/",
+    description: "一个小透明的透明世界",
+  },
+  {
+    name: "Hi,gouzi",
+    url: "https://www.gouzill.com/",
+    description: "哪有什么岁月静好，只是有人为你负重前行",
+    icon: "https://avatars.githubusercontent.com/u/66515297?v=4",
+  },
+  {
+    name: "Jack's Blog",
+    url: "https://www.jackzhu.top/",
+    description: "不乱于心，不困于情，不念过往，不畏将来",
+    icon: "https://gcore.jsdelivr.net/gh/CoderJackZhu/bloggallery/PicGo/mingzi.png",
+  },
+];
+
+const AVATAR_PATHS = ["avatar.jpg", "avatar.png", "avatar.webp", "favicon.ico"];
+
+function getFriendIconUrls(friend: { url: string; icon?: string }): string[] {
+  const base = `https://${new URL(friend.url).hostname}`;
+  if (friend.icon) {
+    return [friend.icon, ...AVATAR_PATHS.map((p) => `${base}/${p}`)];
+  }
+  return AVATAR_PATHS.map((p) => `${base}/${p}`);
+}
 ---
 
 <Layout>
@@ -109,6 +139,53 @@ const currentYear = new Date().getFullYear();
         >
           <CodeXml slot="icon" size={24} stroke-width={1.8} />
         </Card>
+      </div>
+    </section>
+
+    <section class="reveal reveal-3 mt-14 md:mt-16">
+      <div class="flex items-end justify-between gap-6">
+        <div>
+          <h2 class="text-2xl font-semibold tracking-tight text-(--fg)">
+            友链
+          </h2>
+          <p class="mt-2 text-sm text-(--muted)">
+            朋友们的站点，欢迎交换友链
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-7 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        {
+          friends.map((friend) => {
+            const urls = getFriendIconUrls(friend);
+            const [primary, ...fallbacks] = urls;
+            const onError =
+              fallbacks.length > 0
+                ? `var f=JSON.parse(this.dataset.fb||'[]');if(f.length){this.src=f.shift();this.dataset.fb=JSON.stringify(f);f.length||(this.onerror=null)}`
+                : undefined;
+            return (
+              <Card
+                title={friend.name}
+                description={friend.description}
+                href={friend.url}
+                external={true}
+              >
+                <img
+                  slot="icon"
+                  src={primary}
+                  alt=""
+                  width={44}
+                  height={44}
+                  class="size-11 w-11 h-11 rounded-2xl object-cover"
+                  loading="lazy"
+                  referrerpolicy="no-referrer"
+                  data-fb={fallbacks.length > 0 ? JSON.stringify(fallbacks) : undefined}
+                  onerror={onError}
+                />
+              </Card>
+            );
+          })
+        }
       </div>
     </section>
 
