@@ -30,7 +30,7 @@ const friends = [
   },
 ];
 
-const AVATAR_PATHS = ["avatar.jpg", "avatar.png", "avatar.webp", "favicon.ico"];
+const AVATAR_PATHS = ["avatar.png", "avatar.webp", "avatar.jpg", "favicon.ico"];
 
 function getFriendIconUrls(friend: { url: string; icon?: string }): string[] {
   const base = `https://${new URL(friend.url).hostname}`;
