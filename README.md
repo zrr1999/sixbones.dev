@@ -23,16 +23,16 @@
 
 所有命令都需要在项目根目录下执行：
 
-| 命令                   | 说明                         |
-| :--------------------- | :--------------------------- |
-| `bun install`          | 安装依赖                     |
-| `bun run dev`          | 启动本地开发服务器           |
-| `bun run build`        | 构建生产环境代码到 `./dist/` |
-| `bun run preview`      | 本地预览构建后的网站         |
-| `bun run format`       | 格式化代码                   |
-| `bun run format:check` | 检查代码格式                 |
-| `bun run lint`         | 运行代码检查                 |
-| `bun run lint:check`   | 静默模式运行代码检查         |
+| 命令                    | 说明                         |
+| :---------------------- | :--------------------------- |
+| `pnpm install`          | 安装依赖                     |
+| `pnpm run dev`          | 启动本地开发服务器           |
+| `pnpm run build`        | 构建生产环境代码到 `./dist/` |
+| `pnpm run preview`      | 本地预览构建后的网站         |
+| `pnpm run format`       | 格式化代码                   |
+| `pnpm run format:check` | 检查代码格式                 |
+| `pnpm run lint`         | 运行代码检查                 |
+| `pnpm run lint:check`   | 静默模式运行代码检查         |
 
 ## 📁 项目结构
 

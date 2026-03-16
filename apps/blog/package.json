@@ -45,14 +45,12 @@
     "@astrojs/tailwind": "^6.0.2",
     "@astrojs/vue": "6.0.0",
     "@tailwindcss/typography": "^0.5.13",
-    "@types/bun": "^1.2.15",
     "@types/github-slugger": "^2.0.0",
     "@types/lodash.kebabcase": "^4.1.9",
     "@types/react": "^19.1.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "vite": "^7.0.0",
+    "vite": "^8.0.0",
     "vue": "^3.4.19"
-  },
-  "packageManager": "bun@1.2.15"
+  }
 }

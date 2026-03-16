@@ -63,13 +63,13 @@ AI 代理配置和工作流程说明文档。
 
 ## 🧞 使用代理的命令
 
-| 命令             | 说明               |
-| :--------------- | :----------------- |
-| `bun install`    | 安装依赖           |
-| `bun run dev`    | 启动本地开发服务器 |
-| `bun run build`  | 构建生产环境代码   |
-| `bun run format` | 格式化代码         |
-| `bun run lint`   | 运行代码检查       |
+| 命令              | 说明               |
+| :---------------- | :----------------- |
+| `pnpm install`    | 安装依赖           |
+| `pnpm run dev`    | 启动本地开发服务器 |
+| `pnpm run build`  | 构建生产环境代码   |
+| `pnpm run format` | 格式化代码         |
+| `pnpm run lint`   | 运行代码检查       |
 
 ## 📝 工作流程
 
@@ -163,7 +163,7 @@ AI 代理配置和工作流程说明文档。
 
 - [项目 README](./README.md) - 项目主要文档
 - [Astro 文档](https://astro.build) - 框架文档
-- [Bun 文档](https://bun.sh) - 运行时和包管理器文档
+- [pnpm 文档](https://pnpm.io) - 包管理器文档
 
 ## 🤝 贡献指南
 

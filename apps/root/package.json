@@ -20,8 +20,6 @@
     "tailwindcss": "^4.1.8"
   },
   "devDependencies": {
-    "@types/bun": "^1.2.15",
-    "vite": "^7.0.0"
-  },
-  "packageManager": "bun@1.2.15"
+    "vite": "^8.0.0"
+  }
 }
