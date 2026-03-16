@@ -1,7 +1,7 @@
 {
   "name": "@zrr-website/slides",
-  "type": "module",
   "version": "0.0.1",
+  "type": "module",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
@@ -9,8 +9,8 @@
     "astro": "astro",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "lint": "oxlint . --fix",
-    "lint:check": "oxlint ."
+    "lint": "vp lint . --fix",
+    "lint:check": "vp lint ."
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
@@ -26,6 +26,7 @@
     "@tailwindcss/typography": "^0.5.13",
     "@types/github-slugger": "^2.0.0",
     "@types/lodash.kebabcase": "^4.1.9",
-    "vite": "^8.0.0"
+    "vite": "catalog:",
+    "vite-plus": "catalog:"
   }
 }

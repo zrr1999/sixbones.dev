@@ -1,14 +1,11 @@
 {
   "name": "zrr-website",
   "version": "0.1.0",
-  "devDependencies": {
-    "oxlint": "^1.48.0",
-    "prettier": "^3.8.1",
-    "prettier-plugin-astro": "^0.14.1",
-    "prettier-plugin-tailwindcss": "^0.7.2",
-    "turbo": "^2.8.9"
-  },
-  "packageManager": "pnpm@9.15.0",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "type": "module",
   "scripts": {
     "dev": "turbo dev --filter=./apps/*",
     "build": "turbo build --filter=./apps/*",
@@ -16,11 +13,15 @@
     "format": "turbo format",
     "format:check": "turbo format:check",
     "lint": "turbo lint",
-    "lint:check": "turbo lint:check"
+    "lint:check": "turbo lint:check",
+    "prepare": "vp config"
   },
-  "type": "module",
-  "workspaces": [
-    "packages/*",
-    "apps/*"
-  ]
+  "devDependencies": {
+    "prettier": "^3.8.1",
+    "prettier-plugin-astro": "^0.14.1",
+    "prettier-plugin-tailwindcss": "^0.7.2",
+    "turbo": "^2.8.9",
+    "vite-plus": "catalog:"
+  },
+  "packageManager": "pnpm@9.15.0"
 }

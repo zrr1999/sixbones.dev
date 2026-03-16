@@ -1,7 +1,7 @@
 {
   "name": "@zrr-website/root",
-  "type": "module",
   "version": "0.0.1",
+  "type": "module",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
@@ -9,8 +9,8 @@
     "astro": "astro",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "lint": "oxlint . --fix",
-    "lint:check": "oxlint ."
+    "lint": "vp lint . --fix",
+    "lint:check": "vp lint ."
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
@@ -20,6 +20,7 @@
     "tailwindcss": "^4.1.8"
   },
   "devDependencies": {
-    "vite": "^8.0.0"
+    "vite": "catalog:",
+    "vite-plus": "catalog:"
   }
 }
