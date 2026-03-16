@@ -1,20 +1,14 @@
 # AGENTS.md
 
-AI 代理配置和工作流程说明文档。
+AI 代理配置、工作流程与项目规范。项目概览见 [README](./README.md)。
 
-## 📖 项目简介
+## 项目结构
 
-本项目使用 AI 代理来协助开发和维护工作。本文档描述了代理的配置、工作流程和最佳实践。
+- `apps/root/` - 个人主页（sixbones.dev）
+- `apps/blog/` - 博客（blog.sixbones.dev）
+- `apps/slides/` - 幻灯片（slides.sixbones.dev）
 
-### 项目结构
-
-项目包含以下应用：
-
-- `apps/root/` - 个人主页应用（部署到根域名 sixbones.dev）
-- `apps/blog/` - 博客应用（部署到 blog.sixbones.dev）
-- `apps/slides/` - 幻灯片应用（部署到 slides.sixbones.dev）
-
-## 🤖 可用代理
+## 可用代理
 
 ### 代码优化代理
 
@@ -49,80 +43,41 @@ AI 代理配置和工作流程说明文档。
 - 维护测试覆盖率
 - 修复失败的测试
 
-## 🔧 配置
+## 配置
 
-### 项目配置文件
+- `package.json` / `turbo.json` - 依赖与构建
+- `.github/workflows/` - CI/CD
+- `.github/agents/` - 代理配置（若存在）
 
-- `package.json` - 项目依赖和脚本配置
-- `turbo.json` - Turborepo 构建配置
-- `.github/workflows/` - CI/CD 工作流配置
+## 常用命令
 
-### 代理特定配置
+项目使用 Vite+（`vp`），勿直接使用 pnpm/npm/yarn。详见下方 Vite+ 章节。
 
-代理配置存储在 `.github/agents/` 目录下（如果存在）。
+| 命令           | 说明               |
+| :------------- | :----------------- |
+| `vp install`   | 安装依赖           |
+| `vp run dev`   | 启动开发服务器     |
+| `vp run build` | 构建生产代码       |
+| `vp fmt`       | 格式化代码         |
+| `vp lint`      | 代码检查           |
+| `vp check`     | 格式 + lint + 类型 |
+| `vp test`      | 运行测试           |
 
-## 🧞 使用代理的命令
+## 工作流程
 
-| 命令             | 说明               |
-| :--------------- | :----------------- |
-| `bun install`    | 安装依赖           |
-| `bun run dev`    | 启动本地开发服务器 |
-| `bun run build`  | 构建生产环境代码   |
-| `bun run format` | 格式化代码         |
-| `bun run lint`   | 运行代码检查       |
+- **代码优化**：分析 → 识别机会 → 格式化 → `vp check` / `vp test` → 提交
+- **文档更新**：审查 → 更新内容 → 验证格式 → 提交
+- **测试维护**：分析覆盖率 → 补充用例 → `vp test` → 提交
 
-## 📝 工作流程
+## 最佳实践
 
-### 1. 代码优化流程
+- 提交前运行 `vp check` 和 `vp test`
+- 遵循常规提交规范，单次提交保持最小化
+- 审查代理更改时验证测试通过、文档同步
 
-1. 分析现有代码
-2. 识别优化机会
-3. 应用格式化工具
-4. 验证构建和测试
-5. 提交更改
+## 博客编写规范
 
-### 2. 文档更新流程
-
-1. 审查现有文档
-2. 识别过时或不准确的内容
-3. 更新文档内容
-4. 验证文档格式
-5. 提交更改
-
-### 3. 测试维护流程
-
-1. 分析测试覆盖率
-2. 识别缺失的测试用例
-3. 编写新测试
-4. 运行测试套件
-5. 提交更改
-
-## 🎯 最佳实践
-
-### 代码提交
-
-- 使用清晰的提交信息
-- 每次提交保持更改最小化
-- 提交前运行 lint 和测试
-- 遵循常规提交规范
-
-### 代码审查
-
-- 仔细审查 AI 代理的更改
-- 验证所有测试通过
-- 确保代码符合项目标准
-- 检查文档是否同步更新
-
-### 文档编写
-
-- 保持文档简洁明了
-- 使用示例说明用法
-- 及时更新变更
-- 保持格式一致性
-
-## 📝 博客编写规范
-
-博客文章位于 `apps/blog/data/blog/`，使用 Markdown，需符合以下规范。
+文章位于 `apps/blog/data/blog/`，使用 Markdown。
 
 ### Frontmatter
 
@@ -159,22 +114,84 @@ AI 代理配置和工作流程说明文档。
 - `pycapsule-dlpack.md`：无 H1，`##` / `###` 结构
 - `incus-qcow2.md`：短篇，`##` 小节 + `## 参考资料`
 
-## 📚 参考资源
+## 参考
 
-- [项目 README](./README.md) - 项目主要文档
-- [Astro 文档](https://astro.build) - 框架文档
-- [Bun 文档](https://bun.sh) - 运行时和包管理器文档
+- [README](./README.md) - 项目概览与快速上手
+- [Astro](https://astro.build) | [Vite+](https://vite-plus.dev) | [pnpm](https://pnpm.io)
 
-## 🤝 贡献指南
+<!--VITE PLUS START-->
 
-如果您想为本项目做出贡献：
+# Using Vite+, the Unified Toolchain for the Web
 
-1. Fork 项目仓库
-2. 创建功能分支
-3. 提交您的更改
-4. 推送到您的分支
-5. 创建 Pull Request
+This project is using Vite+, a unified toolchain built on top of Vite, Rolldown, Vitest, tsdown, Oxlint, Oxfmt, and Vite Task. Vite+ wraps runtime management, package management, and frontend tooling in a single global CLI called `vp`. Vite+ is distinct from Vite, but it invokes Vite through `vp dev` and `vp build`.
 
-## 📄 许可证
+## Vite+ Workflow
 
-本项目采用 MIT 许可证。详见 [LICENSE](./LICENSE) 文件。
+`vp` is a global binary that handles the full development lifecycle. Run `vp help` to print a list of commands and `vp <command> --help` for information about a specific command.
+
+### Start
+
+- create - Create a new project from a template
+- migrate - Migrate an existing project to Vite+
+- config - Configure hooks and agent integration
+- staged - Run linters on staged files
+- install (`i`) - Install dependencies
+- env - Manage Node.js versions
+
+### Develop
+
+- dev - Run the development server
+- check - Run format, lint, and TypeScript type checks
+- lint - Lint code
+- fmt - Format code
+- test - Run tests
+
+### Execute
+
+- run - Run monorepo tasks
+- exec - Execute a command from local `node_modules/.bin`
+- dlx - Execute a package binary without installing it as a dependency
+- cache - Manage the task cache
+
+### Build
+
+- build - Build for production
+- pack - Build libraries
+- preview - Preview production build
+
+### Manage Dependencies
+
+Vite+ automatically detects and wraps the underlying package manager such as pnpm, npm, or Yarn through the `packageManager` field in `package.json` or package manager-specific lockfiles.
+
+- add - Add packages to dependencies
+- remove (`rm`, `un`, `uninstall`) - Remove packages from dependencies
+- update (`up`) - Update packages to latest versions
+- dedupe - Deduplicate dependencies
+- outdated - Check for outdated packages
+- list (`ls`) - List installed packages
+- why (`explain`) - Show why a package is installed
+- info (`view`, `show`) - View package information from the registry
+- link (`ln`) / unlink - Manage local package links
+- pm - Forward a command to the package manager
+
+### Maintain
+
+- upgrade - Update `vp` itself to the latest version
+
+These commands map to their corresponding tools. For example, `vp dev --port 3000` runs Vite's dev server and works the same as Vite. `vp test` runs JavaScript tests through the bundled Vitest. The version of all tools can be checked using `vp --version`. This is useful when researching documentation, features, and bugs.
+
+## Common Pitfalls
+
+- **Using the package manager directly:** Do not use pnpm, npm, or Yarn directly. Vite+ can handle all package manager operations.
+- **Always use Vite commands to run tools:** Don't attempt to run `vp vitest` or `vp oxlint`. They do not exist. Use `vp test` and `vp lint` instead.
+- **Running scripts:** Vite+ commands take precedence over `package.json` scripts. If there is a `test` script defined in `scripts` that conflicts with the built-in `vp test` command, run it using `vp run test`.
+- **Do not install Vitest, Oxlint, Oxfmt, or tsdown directly:** Vite+ wraps these tools. They must not be installed directly. You cannot upgrade these tools by installing their latest versions. Always use Vite+ commands.
+- **Use Vite+ wrappers for one-off binaries:** Use `vp dlx` instead of package-manager-specific `dlx`/`npx` commands.
+- **Import JavaScript modules from `vite-plus`:** Instead of importing from `vite` or `vitest`, all modules should be imported from the project's `vite-plus` dependency. For example, `import { defineConfig } from 'vite-plus';` or `import { expect, test, vi } from 'vite-plus/test';`. You must not install `vitest` to import test utilities.
+- **Type-Aware Linting:** There is no need to install `oxlint-tsgolint`, `vp lint --type-aware` works out of the box.
+
+## Review Checklist for Agents
+
+- [ ] Run `vp install` after pulling remote changes and before getting started.
+- [ ] Run `vp check` and `vp test` to validate changes.
+ <!--VITE PLUS END-->

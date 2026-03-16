@@ -1,12 +1,7 @@
 ---
 import Layout from "@/components/Layout.astro";
 import Card from "@/components/Card.astro";
-import {
-  BookOpen,
-  CodeXml,
-  ExternalLink,
-  Presentation,
-} from "@lucide/astro";
+import { BookOpen, CodeXml, ExternalLink, Presentation } from "@lucide/astro";
 
 const currentYear = new Date().getFullYear();
 
@@ -35,9 +30,9 @@ const AVATAR_PATHS = ["avatar.png", "avatar.webp", "avatar.jpg", "favicon.ico"];
 function getFriendIconUrls(friend: { url: string; icon?: string }): string[] {
   const base = `https://${new URL(friend.url).hostname}`;
   if (friend.icon) {
-    return [friend.icon, ...AVATAR_PATHS.map((p) => `${base}/${p}`)];
+    return [friend.icon, ...AVATAR_PATHS.map(p => `${base}/${p}`)];
   }
-  return AVATAR_PATHS.map((p) => `${base}/${p}`);
+  return AVATAR_PATHS.map(p => `${base}/${p}`);
 }
 ---
 
@@ -107,9 +102,7 @@ function getFriendIconUrls(friend: { url: string; icon?: string }): string[] {
           <h2 class="text-2xl font-semibold tracking-tight text-(--fg)">
             探索我的内容
           </h2>
-          <p class="mt-2 text-sm text-(--muted)">
-            博客、幻灯片、开源项目...
-          </p>
+          <p class="mt-2 text-sm text-(--muted)">博客、幻灯片、开源项目...</p>
         </div>
         <div class="hidden text-sm text-(--subtle) md:block">持续更新中</div>
       </div>
@@ -148,15 +141,13 @@ function getFriendIconUrls(friend: { url: string; icon?: string }): string[] {
           <h2 class="text-2xl font-semibold tracking-tight text-(--fg)">
             友链
           </h2>
-          <p class="mt-2 text-sm text-(--muted)">
-            朋友们的站点，欢迎交换友链
-          </p>
+          <p class="mt-2 text-sm text-(--muted)">朋友们的站点，欢迎交换友链</p>
         </div>
       </div>
 
       <div class="mt-7 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
         {
-          friends.map((friend) => {
+          friends.map(friend => {
             const urls = getFriendIconUrls(friend);
             const [primary, ...fallbacks] = urls;
             const onError =
@@ -176,10 +167,12 @@ function getFriendIconUrls(friend: { url: string; icon?: string }): string[] {
                   alt=""
                   width={44}
                   height={44}
-                  class="size-11 w-11 h-11 rounded-2xl object-cover"
+                  class="size-11 h-11 w-11 rounded-2xl object-cover"
                   loading="lazy"
                   referrerpolicy="no-referrer"
-                  data-fb={fallbacks.length > 0 ? JSON.stringify(fallbacks) : undefined}
+                  data-fb={
+                    fallbacks.length > 0 ? JSON.stringify(fallbacks) : undefined
+                  }
                   onerror={onError}
                 />
               </Card>
