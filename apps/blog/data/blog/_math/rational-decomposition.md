@@ -272,7 +272,19 @@ $$
 Cb - Bc = f
 $$
 
+将 $Bc$ 移到右边，再将 $f$ 移到左边：
+
+$$
+Cb - f = Bc
+$$
+
 因为 $c \neq 0$，两边同时除以 $c$：
+
+$$
+\frac{Cb - f}{c} = \frac{Bc}{c} = B
+$$
+
+整理得：
 
 $$
 B = \frac{Cb - f}{c}
@@ -354,7 +366,15 @@ $$
 代入 $s = 1$ 求 $A$：
 
 $$
-\frac{4}{2\times5}=\frac{A-1}{5}+\frac22
+\frac{1+3}{(1+1)(1^2+2\times1+2)}
+=\frac{A\times1-1}{1^2+2\times1+2}+\frac{2}{1+1}
+$$
+
+化简后，两边同时乘以 $5$：
+
+$$
+\frac{2}{5}=\frac{A-1}{5}+1
+\quad\Rightarrow\quad 2=A-1+5
 \quad\Rightarrow\quad A=-2
 $$
 
@@ -370,6 +390,8 @@ $$
 \begin{aligned}
 \mathcal{L}^{-1}\left[\frac{-2s-1}{s^2+2s+2}\right]
 &=\mathcal{L}^{-1}\left[\frac{-2(s+1)+1}{(s+1)^2+1}\right] \\
+&=-2\mathcal{L}^{-1}\left[\frac{s+1}{(s+1)^2+1}\right]
++\mathcal{L}^{-1}\left[\frac{1}{(s+1)^2+1}\right] \\
 &=-2e^{-t}\cos t+e^{-t}\sin t
 \end{aligned}
 $$
@@ -381,7 +403,10 @@ $$
 因此，单边拉普拉斯反变换的结果为：
 
 $$
-f(t) = e^{-t}(2 - 2\cos t + \sin t),\qquad t\ge0
+\begin{aligned}
+f(t)&=-2e^{-t}\cos t+e^{-t}\sin t+2e^{-t} \\
+&=e^{-t}(2-2\cos t+\sin t),\qquad t\ge0
+\end{aligned}
 $$
 
 ## 总结
@@ -395,8 +420,3 @@ $$
 5. 使用前检查分母因子的重数，计算后可通分验证结果
 
 在信号与系统中，可以先用这些方法做部分分式分解，再逐项求拉普拉斯反变换。选择求系数的方法时，要先确认分母的因子形式与代入值是否合适。
-
-## 参考资料
-
-- [OpenStax：Partial fractions](https://openstax.org/books/calculus-volume-2/pages/3-4-partial-fractions)
-- [MIT 18.04：Laplace table](https://ocw.mit.edu/courses/18-04-complex-variables-with-applications-spring-2018/6aa89a153403fee81b90a1a55d524c2a_MIT18_04S18_laptable.pdf)
