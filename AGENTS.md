@@ -40,6 +40,8 @@
 
 ## 博客规范
 
+起草、改写或审阅博客前，必须加载 `writing-style` skill（默认位置 `~/.agents/skills/writing-style/SKILL.md`），按入口读取风格规范及相关样例。未安装时明确报告缺口；不要声称已应用。风格规则只在 skill 中维护，本仓库负责内容格式与构建约束。README、PR 等仅在用户明确要求个人文风时应用。
+
 文章在 `apps/blog/data/blog/`（Markdown / Typst），用一层 `_主题/` 目录分组。目录名以下划线开头，只给作者侧定位，不进入 URL；文件名在整个 `data/blog/` 下保持唯一，已发布路由仍是 `/posts/<slug>`。Frontmatter 必填：`title`、`description`、`pubDatetime`、`tags`（默认 `["未分类"]`）；可选 `modDatetime`、`draft`、`featured` 等（见 `content.config.ts`）。
 
 当前主题：`_language/`、`_ai/`、`_engineering/`、`_homelab/`、`_math/`。新文放入最接近的主题，其余维度用 `tags`。是否发布看 `draft`，不要靠 `_drafts/` 这类目录名隐藏。Typst 配图用项目根路径（如 `/public/images/blog/...`），避免相对 `../` 随目录深度变化。
